@@ -17,7 +17,7 @@ end
 
 pp qt
 
-puts 'a randomized Am chord'
+puts 'a probabilitilized Am chord'
 midi = MIDIator::Interface.new
 midi.autodetect_driver
 midi.instruct_user!
