@@ -7,14 +7,12 @@ INTERVAL = 0.3
 
 # kinda boilerplate in my opinion, but it's very nice for
 # those who are musically inclined
-BMinor = [B4, Fs4, B5 , D5].reverse
-CMajor = [C4, G4, C5, E5].reverse
-EMinor = [E3, B4, E4, G4].reverse
-FsMajor = [Fs3, Cs4, Fs5, As5].reverse
+Bm = [B4, Fs4, B5 , D5].reverse
+C = [C4, G4, C5, E5].reverse
+Em = [E3, B4, E4, G4].reverse
+Fs = [Fs3, Cs4, Fs5, As5].reverse
 
-
-chords = { 'bm' => BMinor, 'c' => CMajor, 'em' => EMinor, 'fs' => FsMajor }
-list = [ 'bm' , 'bm' , 'c' , 'em' , 'fs', 'fs' ]
+list = [ Bm , Bm , C , Em , Fs , Fs ]
 
 midi = MIDIator::Interface.new
 midi.autodetect_driver
@@ -23,13 +21,12 @@ midi.instruct_user!
 #the main track, it just plays the arpeggios
 main = Thread.new {
 	while true
-		list.each do |c|
-			puts c
-			chords[c].each do |n| midi.play n
+		list.each do |chord|
+			chord.each do |note|
+				midi.play note
 				sleep INTERVAL
 			end
 		end
-
 	end
 }
 
@@ -44,13 +41,14 @@ tracks = (1..5).to_a.map do |delay|
 		while i < (5 - i)
 			puts "thread #{delay}"
 			i += 1
-			list.each do |c|
-				puts c
-				chords[c].each do |n| midi.play n
+			list.each do |chord|
+				chord.each do |note| 
+					midi.play note
 					sleep INTERVAL
 				end
 			end
 		end
+
 		Thread.stop
 	}
 end
