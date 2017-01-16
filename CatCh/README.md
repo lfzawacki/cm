@@ -22,6 +22,6 @@ Notice that all the examples use the Mn class, so you must include Mn.ck in the 
 
 * ChucK website: http://chuck.cs.princeton.edu/
 * The excellent ChucK tutorials: in the ChucK website
-* My article (in portuguese) : http://dl.dropbox.com/u/2701879/uacptm_artigo.pdf
-* My presentation (in portuguese) : http://dl.dropbox.com/u/2701879/uacptm_slides.pdf
+* My article (in portuguese) : https://blog.lfzawacki.com/wp-content/uploads/2017/01/uacptm_artigo.pdf
+* My presentation (in portuguese) : https://blog.lfzawacki.com/wp-content/uploads/2017/01/uacptm_slides.pdf
 
